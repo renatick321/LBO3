@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Авторизоваться</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/media/images/icon.png" type="image">
+</head>
+<body>
+
+{% include 'home/header.html' %}
+
+
+<form method="post" class="reg_body" style="padding-top: 150px">
+{% csrf_token %}
+<p style="color: white; font-size: 40px; text-align: center; margin-bottom: 0;">Авторизоваться</p>
+<input type="text" name="username" maxlength="100" autofocus required id="id_username" class="field" placeholder="Username...">
+<input type="password" name="password" maxlength="100" required id="id_password1" class="field" placeholder="Password...">
+<input type="submit" value="Авторизоваться" class="send_button">
+{% if message %} <div class="field" style="margin-top: 10px; color: lightgrey; font-size: 21px;">{{message}}</div> {% endif %}
+</form>
+
+<script type="text/javascript" src="{% static 'js/needed.js' %}"></script>
+</body>
+</html>
+
